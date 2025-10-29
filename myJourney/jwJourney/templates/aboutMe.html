@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <!-- Font Awesome icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+    <h1>About Me</h1>
+
+    <div class="card">
+        <img src="{% static 'images/profile-img.jpg' %}" alt="Profile Picture" class="profile-img">
+
+        <p>Hello! I’m <strong>jigme wangchuk</strong>, a passionate learner exploring Django, Python, and web
+            development.</p>
+
+        <p>Through this journey, I learned how to:</p>
+        <ul>
+            <li>Structure a Django project using the MVT pattern</li>
+            <li>Create and register models in the admin interface</li>
+            <li>Use templates and views for dynamic content</li>
+            <li>Build a personal webpage using clean, simple design</li>
+        </ul>
+
+        <button id="funFactBtn" onclick="showFunFact()">Show Fun Fact</button>
+        <div id="funFact"></div>
+
+       
+    </div>
+
+    <a href="{% url 'home' %}" class="back-link">← Back to My Learning Journey</a>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+    <script>
+        // Simple fun fact functionality
+        const funFacts = [
+            "I love coding and exploring new tech!",
+            "I enjoy building small web projects daily.",
+            "Python is my favorite programming language."
+        ];
+
+        function showFunFact() {
+            const fact = funFacts[Math.floor(Math.random() * funFacts.length)];
+            document.getElementById('funFact').textContent = fact;
+        }
+    </script>
+</body>
+
+</html>
